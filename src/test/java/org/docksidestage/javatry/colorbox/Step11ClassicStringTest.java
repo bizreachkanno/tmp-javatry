@@ -24,12 +24,7 @@ import org.docksidestage.unit.PlainTestCase;
 
 /**
  * The test of String with color-box, not using Stream API. <br>
- * Show answer by log() for question of javadoc. <br>
- * <pre>
- * addition:
- * o e.g. "string in color-boxes" means String-type content in space of color-box
- * o don't fix the YourPrivateRoom class and color-box classes
- * </pre>
+ * Show answer by log() for question of javadoc.
  * @author jflute
  * @author your_name_here
  */
@@ -56,6 +51,21 @@ public class Step11ClassicStringTest extends PlainTestCase {
      * (カラーボックスに入ってる文字列の中で、一番長い文字列は？)
      */
     public void test_length_findMax() {
+        List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
+        for (ColorBox colorBox : colorBoxList){
+            List<BoxSpace> spaceList = colorBox.getSpaceList();
+            String maxStr =null;
+            for (ColorBox colorBox :colorBoxList){
+                Object content = space.getContent();
+                if(count instanceof String){
+                    String strContent = (String) content;
+                    int currentLength = strContent.length();
+                    if(maxStr == null || maxStr.length()<current.length){
+                        maxStr = strContent;
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -63,6 +73,22 @@ public class Step11ClassicStringTest extends PlainTestCase {
      * (カラーボックスに入ってる文字列の中で、一番長いものと短いものの差は何文字？)
      */
     public void test_length_findMaxMinDiff() {
+        List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
+        for (ColorBox colorBox : colorBoxList){
+            List<BoxSpace> spaceList = colorBox.getSpaceList();
+            String maxStr = null;
+            String minStr = null;
+            for (ColorBox colorBox :colorBoxList){
+                Object content = space.getContent();
+                if(count instanceof String){
+                    String strContent = (String) content;
+                    int currentLength = strContent.length();
+                    if(maxStr == null || maxStr.length()<current.length || minStr == null || minStr.length()>current.length){
+                        maxStr.length(); - minStr.length(); = strContent;
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -70,6 +96,29 @@ public class Step11ClassicStringTest extends PlainTestCase {
      * (カラーボックスに入ってる値 (文字列以外はtoString()) の中で、二番目に長い文字列は？ (ソートなしで))
      */
     public void test_length_findSecondMax() {
+        List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
+        for (ColorBox colorBox : colorBoxList){
+            List<BoxSpace> spaceList = colorBox.getSpaceList();
+            String maxStr = null;
+            for (ColorBox colorBox :colorBoxList){
+                Object content = space.getContent();
+                if(count instanceof String){
+                    String strContent = (String) content;
+                    int currentLength = strContent.length();
+                    int max1 = maxStr;
+                    maxStr = Integer.parseInt(args[0]);
+                    int i = 1;
+                    while(i < args.length){
+                        int nums = Integer.parseInt(args[i]);
+                        if(nums > maxStr || nums < max1)
+                            maxStr=nums;
+                        i++
+                    }
+                    int max2 = maxStr;
+                    System.out.println(max2)
+                }
+            }
+        }
     }
 
     /**
@@ -77,6 +126,22 @@ public class Step11ClassicStringTest extends PlainTestCase {
      * (カラーボックスに入ってる文字列の長さの合計は？)
      */
     public void test_length_calculateLengthSum() {
+        List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
+        for (ColorBox colorBox : colorBoxList){
+            List<BoxSpace> spaceList = colorBox.getSpaceList();
+            String sum =0;
+            for (ColorBox colorBox :colorBoxList){
+                Object content = space.getContent();
+                if(count instanceof String){
+                    String strContent = (String) content;
+                    int currentLength = strContent.length();
+                    for( int i=0; i<strContent.length; i++ ) {
+                        sum += strContent[i];
+                    }
+                    System.out.println(sum);
+                }
+            }
+        }
     }
 
     /**
@@ -84,6 +149,25 @@ public class Step11ClassicStringTest extends PlainTestCase {
      * (カラーボックスの中で、色の名前が一番長いものは？)
      */
     public void test_length_findMaxColorSize() {
+        List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
+        for (ColorBox colorBox : colorBoxList){
+            List<BoxSpace> spaceList = colorBox.getSpaceList();
+            for (ColorBox colorBox :colorBoxList){
+                Object content = space.getContent();
+                if(count instanceof String){
+                    String strContent = (String) content;
+                    int currentLength = strContent.length();
+                    String longestWord =null;
+                    for(int i=0;i<strContent.length;i++){
+                        for(int j=1+i;j<strContent.length;j++){
+                            if(word[i].length()>=strContent[j].length()){
+                                longestWord=strContent[i];
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     // ===================================================================================
@@ -94,6 +178,21 @@ public class Step11ClassicStringTest extends PlainTestCase {
      * ("Water" で始まる文字列をしまっているカラーボックスの色は？)
      */
     public void test_startsWith_findFirstWord() {
+        List<ColorBox> colorBoxList = new YourPrivateRoom().getColorBoxList();
+        for (ColorBox colorBox : colorBoxList){
+            List<BoxSpace> spaceList = colorBox.getSpaceList();
+            String maxStr =null;
+            for (ColorBox colorBox :colorBoxList){
+                Object content = space.getContent();
+                if(count instanceof String){
+                    String strContent = (String) content;
+                    int currentLength = strContent.length();
+                    if(maxStr == null || maxStr.length()<current.length){
+                        maxStr = strContent;
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -114,8 +213,8 @@ public class Step11ClassicStringTest extends PlainTestCase {
     }
 
     /**
-     * What number character is starting with the late "ど" of string containing plural "ど"s in color-boxes? (e.g. "どんどん" => 3) <br>
-     * (あなたのカラーボックスに入ってる「ど」を二つ以上含む文字列で、最後の「ど」は何文字目から始まる？ (e.g. "どんどん" => 3))
+     * What number character is starting with the late "ど" of string containing plural "ど"s in color-boxes? <br>
+     * (あなたのカラーボックスに入ってる「ど」を二つ以上含む文字列で、最後の「ど」は何文字目から始まる？)
      */
     public void test_lastIndexOf_findIndex() {
     }
@@ -165,36 +264,26 @@ public class Step11ClassicStringTest extends PlainTestCase {
     }
 
     // ===================================================================================
-    //                                                                           Challenge
+    //                                                                           Good Luck
     //                                                                           =========
     /**
      * What string is converted to style "map:{ key = value ; key = value ; ... }" from java.util.Map in color-boxes? <br>
      * (カラーボックスの中に入っている java.util.Map を "map:{ key = value ; key = value ; ... }" という形式で表示すると？)
      */
-    public void test_showMap_flat() {
+    public void test_showMap() {
     }
 
-    /**
-     * What string is converted to style "map:{ key = value ; key = map:{ key = value ; ... } ; ... }" from java.util.Map in color-boxes? <br>
-     * (カラーボックスの中に入っている java.util.Map を "map:{ key = value ; key = map:{ key = value ; ... } ; ... }" という形式で表示すると？)
-     */
-    public void test_showMap_nested() {
-    }
-
-    // ===================================================================================
-    //                                                                           Good Luck
-    //                                                                           =========
     /**
      * What string of toString() is converted from text of SecretBox class in upper space on the "white" color-box to java.util.Map? <br>
      * (whiteのカラーボックスのupperスペースに入っているSecretBoxクラスのtextをMapに変換してtoString()すると？)
      */
-    public void test_parseMap_flat() {
+    public void test_parseMap_basic() {
     }
 
     /**
      * What string of toString() is converted from text of SecretBox class in both middle and lower spaces on the "white" color-box to java.util.Map? <br>
      * (whiteのカラーボックスのmiddleおよびlowerスペースに入っているSecretBoxクラスのtextをMapに変換してtoString()すると？)
      */
-    public void test_parseMap_nested() {
+    public void test_parseMap_deep() {
     }
 }
